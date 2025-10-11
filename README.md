@@ -2,17 +2,6 @@
 
 <div align="center">
 
-<!-- Badges -->
- 
-## Example
-
-Do check out & run [example.ts](Example/example.ts) to see an example usage of the library.
-The script covers most common use cases.
-To run the example script, download or clone the repo and then type the following in a terminal:
-1. ``` cd path/to/Baileys ```
-2. ``` yarn ```
-3. ``` yarn example ```
-
 ## Install
 
 Use the stable version:
