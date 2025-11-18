@@ -39,6 +39,7 @@ import makeWASocket from '@itsukichan/baileys'
 - [Handling Events](#handling-events)
     - [Example to Start](#example-to-start)
     - [Decrypt Poll Votes](#decrypt-poll-votes)
+    - [Decrypt Event Response](#decrypt-event-response) 
     - [Summary of Events on First Connection](#summary-of-events-on-first-connection)
 - [Implementing a Data Store](#implementing-a-data-store)
 - [Whatsapp IDs Explain](#whatsapp-ids-explain)
@@ -427,6 +428,19 @@ suki.ev.on("messages.update", async (chatUpdate) => {
 	        }
         }
     } 
+})
+```
+
+### Decrypt Event Response
+
+- By default event response are encrypted and handled in `messages.update`
+```ts
+import { jidNormalizedUser, getAggregateResponsesInEventMessage } from '@itsukichan/baileys'
+
+suki.ev.on("messages.update", async ([chatUpdate]) => {
+    const eventResponses = chatUpdate.update?.eventResponses
+    const agregate = getAggregateResponsesInEventMessage({ eventResponses }, jidNormalizedUser(suki.user.lid)) 
+    console.log(agregate) 
 })
 ```
 
